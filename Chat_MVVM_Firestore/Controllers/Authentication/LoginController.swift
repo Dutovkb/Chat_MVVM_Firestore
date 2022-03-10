@@ -16,6 +16,8 @@ final class LoginController: UIViewController {
         
         static let buttonCornerRadius: CGFloat = 5
         static let buttonTitleFontSize: CGFloat = 16
+
+        static let accountButtonFontSize: CGFloat = 16
         
         static let stackViewSpacing: CGFloat = 16
         static let stackViewPadding: CGFloat = 32
@@ -38,7 +40,7 @@ final class LoginController: UIViewController {
         return InputContainerView(image: UIImage(), textField: passwordTextField)
     }()
 
-    private let emailTextField = CustomTextField(placeholder: "Enter your e-mail address, please")
+    private let emailTextField = CustomTextField(placeholder: "E-mail")
     
     private lazy var passwordContainerView: InputContainerView = {
         if let image = UIImage(named: "ic_lock_outline_white_2x") {
@@ -49,7 +51,7 @@ final class LoginController: UIViewController {
     }()
 
     private let passwordTextField: CustomTextField = {
-        let textField = CustomTextField(placeholder: "Enter your password, please")
+        let textField = CustomTextField(placeholder: "Password")
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -60,7 +62,20 @@ final class LoginController: UIViewController {
         button.setHeight(height: Constants.loginButtonHeight)
         button.layer.cornerRadius = Constants.buttonCornerRadius
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.buttonTitleFontSize)
-        button.backgroundColor = .systemRed
+        button.backgroundColor = .systemPink
+        return button
+    }()
+
+    private let dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an acoount?",
+                                                        attributes: [.font: UIFont.systemFont(ofSize: Constants.accountButtonFontSize),
+                                                                     .foregroundColor: UIColor.white])
+        attributedTitle.append(NSAttributedString(string: " Sign up",
+                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: Constants.accountButtonFontSize),
+                                                               .foregroundColor: UIColor.white]))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -76,6 +91,7 @@ final class LoginController: UIViewController {
         configureGradientLayer()
         configureIconConstraints()
         configureStackView()
+        confugireAccountButtonConstraints()
     }
     
     private func configureNavigationController() {
@@ -114,5 +130,16 @@ final class LoginController: UIViewController {
                          paddingTop: Constants.stackViewPadding,
                          paddingLeft: Constants.stackViewPadding,
                          paddingRight: -Constants.stackViewPadding)
+    }
+
+    private func confugireAccountButtonConstraints() {
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor)
+    }
+
+    @objc
+    private func handleShowSignUp() {
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
