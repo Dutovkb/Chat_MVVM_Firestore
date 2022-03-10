@@ -77,8 +77,9 @@ final class RegistrationController: UIViewController {
     }()
 
     private let signUpButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign up", for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.setHeight(height: Constants.sighUpButtonHeight)
         button.layer.cornerRadius = Constants.signUpCornerRadius
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.sighUpButtonTitleFontSize)

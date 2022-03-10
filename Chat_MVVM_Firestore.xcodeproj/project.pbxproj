@@ -23,6 +23,7 @@
 		0BC4382D27DA276800C1885C /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382C27DA276800C1885C /* InputContainerView.swift */; };
 		0BC4382F27DA590400C1885C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382E27DA590400C1885C /* CustomTextField.swift */; };
 		0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */; };
+		0BC4383427DA92AC00C1885C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383327DA92AC00C1885C /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		0BC4382C27DA276800C1885C /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		0BC4382E27DA590400C1885C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		0BC4383327DA92AC00C1885C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				0BC4382827D9FFAB00C1885C /* Extensions */,
 				0BC4382227D9F38C00C1885C /* Controllers */,
 				0B34B2AB27D9F232005781A0 /* ViewController.swift */,
+				0BC4383227DA929200C1885C /* ViewModels */,
 				0B34B2AD27D9F232005781A0 /* Main.storyboard */,
 				0B34B2B027D9F233005781A0 /* Assets.xcassets */,
 				0B34B2B227D9F233005781A0 /* LaunchScreen.storyboard */,
@@ -178,6 +181,14 @@
 				0BC4382E27DA590400C1885C /* CustomTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0BC4383227DA929200C1885C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0BC4383327DA92AC00C1885C /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +324,7 @@
 			files = (
 				0B34B2AC27D9F232005781A0 /* ViewController.swift in Sources */,
 				0BC4382D27DA276800C1885C /* InputContainerView.swift in Sources */,
+				0BC4383427DA92AC00C1885C /* LoginViewModel.swift in Sources */,
 				0BC4382A27D9FFE600C1885C /* UIView+Extension.swift in Sources */,
 				0B34B2A827D9F232005781A0 /* AppDelegate.swift in Sources */,
 				0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */,

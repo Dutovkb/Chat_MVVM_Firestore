@@ -24,6 +24,8 @@ final class LoginController: UIViewController {
 
         static let loginButtonHeight: CGFloat = 50
     }
+
+    private var viewModel = LoginViewModel()
     
     private let iconImage: UIImageView = {
         let icon = UIImageView()
@@ -57,12 +59,15 @@ final class LoginController: UIViewController {
     }()
     
     private let loginButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.setHeight(height: Constants.loginButtonHeight)
         button.layer.cornerRadius = Constants.buttonCornerRadius
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.buttonTitleFontSize)
-        button.backgroundColor = .systemPink
+        button.backgroundColor = .systemPurple
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
 
@@ -84,6 +89,16 @@ final class LoginController: UIViewController {
         
         configureUI()
     }
+
+    private func checkFormStatus() {
+        if viewModel.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .systemPink
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .systemPurple
+        }
+    }
     
     private func configureUI() {
         view.backgroundColor = .systemPink
@@ -92,6 +107,7 @@ final class LoginController: UIViewController {
         configureIconConstraints()
         configureStackView()
         confugireAccountButtonConstraints()
+        configureTextFields()
     }
     
     private func configureNavigationController() {
@@ -131,9 +147,29 @@ final class LoginController: UIViewController {
                                      right: view.rightAnchor)
     }
 
+    private func configureTextFields() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+
     @objc
     private func handleShowSignUp() {
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+
+    @objc
+    private func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        checkFormStatus()
+    }
+
+    @objc
+    private func handleLogin() {
+        print("Email: \(viewModel.email?.lowercased()), password: \(viewModel.password)")
     }
 }
