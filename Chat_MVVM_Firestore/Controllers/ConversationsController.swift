@@ -13,9 +13,33 @@ class ConversationsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+    
+    private func configureUI() {
         view.backgroundColor = .white
+        configureNavigationController()
         configureNavigationItem()
         configureTableView()
+    }
+    
+    private func configureNavigationController() {
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.configureWithOpaqueBackground()
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .systemPink
+        
+        if let navigationController = navigationController {
+            let navigationBar = navigationController.navigationBar
+            navigationBar.standardAppearance = appearance
+            navigationBar.compactAppearance = appearance
+            navigationBar.scrollEdgeAppearance = appearance
+            navigationBar.prefersLargeTitles = true
+            navigationBar.tintColor = .white
+            navigationBar.isTranslucent = true
+            navigationBar.overrideUserInterfaceStyle = .dark
+        }
     }
     
     private func configureNavigationItem() {

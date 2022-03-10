@@ -17,6 +17,9 @@
 		0B34B2C927D9F233005781A0 /* Chat_MVVM_FirestoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2C827D9F233005781A0 /* Chat_MVVM_FirestoreUITests.swift */; };
 		0B34B2CB27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */; };
 		0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2D727D9F266005781A0 /* ConversationsController.swift */; };
+		0BC4382527D9F4D300C1885C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382427D9F4D300C1885C /* LoginController.swift */; };
+		0BC4382727D9F4DD00C1885C /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382627D9F4DD00C1885C /* RegistrationController.swift */; };
+		0BC4382A27D9FFE600C1885C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382927D9FFE600C1885C /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		0B34B2C827D9F233005781A0 /* Chat_MVVM_FirestoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat_MVVM_FirestoreUITests.swift; sourceTree = "<group>"; };
 		0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat_MVVM_FirestoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0B34B2D727D9F266005781A0 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
+		0BC4382427D9F4D300C1885C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		0BC4382627D9F4DD00C1885C /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		0BC4382927D9FFE600C1885C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +109,8 @@
 			children = (
 				0B34B2A727D9F232005781A0 /* AppDelegate.swift */,
 				0B34B2A927D9F232005781A0 /* SceneDelegate.swift */,
-				0B34B2D727D9F266005781A0 /* ConversationsController.swift */,
+				0BC4382827D9FFAB00C1885C /* Extensions */,
+				0BC4382227D9F38C00C1885C /* Controllers */,
 				0B34B2AB27D9F232005781A0 /* ViewController.swift */,
 				0B34B2AD27D9F232005781A0 /* Main.storyboard */,
 				0B34B2B027D9F233005781A0 /* Assets.xcassets */,
@@ -128,6 +135,32 @@
 				0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */,
 			);
 			path = Chat_MVVM_FirestoreUITests;
+			sourceTree = "<group>";
+		};
+		0BC4382227D9F38C00C1885C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0BC4382327D9F49D00C1885C /* Authentication */,
+				0B34B2D727D9F266005781A0 /* ConversationsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0BC4382327D9F49D00C1885C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				0BC4382427D9F4D300C1885C /* LoginController.swift */,
+				0BC4382627D9F4DD00C1885C /* RegistrationController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		0BC4382827D9FFAB00C1885C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BC4382927D9FFE600C1885C /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +295,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B34B2AC27D9F232005781A0 /* ViewController.swift in Sources */,
+				0BC4382A27D9FFE600C1885C /* UIView+Extension.swift in Sources */,
 				0B34B2A827D9F232005781A0 /* AppDelegate.swift in Sources */,
 				0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */,
 				0B34B2AA27D9F232005781A0 /* SceneDelegate.swift in Sources */,
+				0BC4382727D9F4DD00C1885C /* RegistrationController.swift in Sources */,
+				0BC4382527D9F4D300C1885C /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
