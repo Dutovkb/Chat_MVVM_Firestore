@@ -19,9 +19,7 @@ final class LoginController: UIViewController {
         
         static let stackViewSpacing: CGFloat = 16
         static let stackViewPadding: CGFloat = 32
-        
-        static let emailContainerViewHeight: CGFloat = 50
-        static let passwordContainerViewHeight: CGFloat = 50
+
         static let loginButtonHeight: CGFloat = 50
     }
     
@@ -32,18 +30,28 @@ final class LoginController: UIViewController {
         return icon
     }()
     
-    private let emailContainerView: UIView = {
-        let view = UIView()
-        view.setHeight(height: Constants.emailContainerViewHeight)
-        view.backgroundColor = .cyan
-        return view
+    private lazy var emailContainerView: UIView = {
+        if let image = UIImage(named: "ic_mail_outline_white_2x") {
+            let containerView = InputContainerView(image: image, textField: emailTextField)
+            return containerView
+        }
+        return InputContainerView(image: UIImage(), textField: passwordTextField)
     }()
+
+    private let emailTextField = CustomTextField(placeholder: "Enter your e-mail address, please")
     
-    private let passwordContainerView: UIView = {
-        let view = UIView()
-        view.setHeight(height: Constants.passwordContainerViewHeight)
-        view.backgroundColor = .yellow
-        return view
+    private lazy var passwordContainerView: InputContainerView = {
+        if let image = UIImage(named: "ic_lock_outline_white_2x") {
+            let containerView = InputContainerView(image: image, textField: passwordTextField)
+            return containerView
+        }
+        return InputContainerView(image: UIImage(), textField: passwordTextField)
+    }()
+
+    private let passwordTextField: CustomTextField = {
+        let textField = CustomTextField(placeholder: "Enter your password, please")
+        textField.isSecureTextEntry = true
+        return textField
     }()
     
     private let loginButton: UIButton = {
