@@ -16,6 +16,7 @@
 		0B34B2BF27D9F233005781A0 /* Chat_MVVM_FirestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2BE27D9F233005781A0 /* Chat_MVVM_FirestoreTests.swift */; };
 		0B34B2C927D9F233005781A0 /* Chat_MVVM_FirestoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2C827D9F233005781A0 /* Chat_MVVM_FirestoreUITests.swift */; };
 		0B34B2CB27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */; };
+		0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2D727D9F266005781A0 /* ConversationsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0B34B2C427D9F233005781A0 /* Chat_MVVM_FirestoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chat_MVVM_FirestoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B34B2C827D9F233005781A0 /* Chat_MVVM_FirestoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat_MVVM_FirestoreUITests.swift; sourceTree = "<group>"; };
 		0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat_MVVM_FirestoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0B34B2D727D9F266005781A0 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				0B34B2A727D9F232005781A0 /* AppDelegate.swift */,
 				0B34B2A927D9F232005781A0 /* SceneDelegate.swift */,
+				0B34B2D727D9F266005781A0 /* ConversationsController.swift */,
 				0B34B2AB27D9F232005781A0 /* ViewController.swift */,
 				0B34B2AD27D9F232005781A0 /* Main.storyboard */,
 				0B34B2B027D9F233005781A0 /* Assets.xcassets */,
@@ -260,6 +263,7 @@
 			files = (
 				0B34B2AC27D9F232005781A0 /* ViewController.swift in Sources */,
 				0B34B2A827D9F232005781A0 /* AppDelegate.swift in Sources */,
+				0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */,
 				0B34B2AA27D9F232005781A0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
