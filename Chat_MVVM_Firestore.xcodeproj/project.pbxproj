@@ -22,6 +22,7 @@
 		0BC4382A27D9FFE600C1885C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382927D9FFE600C1885C /* UIView+Extension.swift */; };
 		0BC4382D27DA276800C1885C /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382C27DA276800C1885C /* InputContainerView.swift */; };
 		0BC4382F27DA590400C1885C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382E27DA590400C1885C /* CustomTextField.swift */; };
+		0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		0BC4382927D9FFE600C1885C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0BC4382C27DA276800C1885C /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		0BC4382E27DA590400C1885C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				0BC4382927D9FFE600C1885C /* UIView+Extension.swift */,
+				0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				0B34B2AA27D9F232005781A0 /* SceneDelegate.swift in Sources */,
 				0BC4382727D9F4DD00C1885C /* RegistrationController.swift in Sources */,
 				0BC4382527D9F4D300C1885C /* LoginController.swift in Sources */,
+				0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */,
 				0BC4382F27DA590400C1885C /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

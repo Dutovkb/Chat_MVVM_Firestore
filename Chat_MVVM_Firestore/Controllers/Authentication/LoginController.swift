@@ -37,7 +37,7 @@ final class LoginController: UIViewController {
             let containerView = InputContainerView(image: image, textField: emailTextField)
             return containerView
         }
-        return InputContainerView(image: UIImage(), textField: passwordTextField)
+        return InputContainerView(image: UIImage(), textField: emailTextField)
     }()
 
     private let emailTextField = CustomTextField(placeholder: "E-mail")
@@ -68,7 +68,7 @@ final class LoginController: UIViewController {
 
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an acoount?",
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?",
                                                         attributes: [.font: UIFont.systemFont(ofSize: Constants.accountButtonFontSize),
                                                                      .foregroundColor: UIColor.white])
         attributedTitle.append(NSAttributedString(string: " Sign up",
@@ -105,14 +105,6 @@ final class LoginController: UIViewController {
         iconImage.setDimensions(height: Constants.iconHeight, width: Constants.iconWidth)
     }
     
-    private func configureGradientLayer() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
-    
     private func configureStackView() {
         let stackView = UIStackView(arrangedSubviews: [emailContainerView,
                                                        passwordContainerView,
@@ -134,7 +126,9 @@ final class LoginController: UIViewController {
 
     private func confugireAccountButtonConstraints() {
         view.addSubview(dontHaveAccountButton)
-        dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor)
+        dontHaveAccountButton.anchor(left: view.leftAnchor,
+                                     bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                     right: view.rightAnchor)
     }
 
     @objc
