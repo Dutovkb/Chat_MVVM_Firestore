@@ -168,6 +168,7 @@ final class LoginController: UIViewController {
 
     @objc
     private func handleLogin() {
+        print("Email: \(viewModel.email?.lowercased() ?? "0"), password: \(viewModel.password ?? "0")")
     }
 }
 
