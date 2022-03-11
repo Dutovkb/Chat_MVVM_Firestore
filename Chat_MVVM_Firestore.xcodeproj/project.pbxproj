@@ -25,6 +25,10 @@
 		0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */; };
 		0BC4383427DA92AC00C1885C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383327DA92AC00C1885C /* LoginViewModel.swift */; };
 		0BC4383627DA9CBB00C1885C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383527DA9CBB00C1885C /* RegisterViewModel.swift */; };
+		0BC920AC27DB77B70040D678 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BC920AB27DB77B70040D678 /* GoogleService-Info.plist */; };
+		2424DE58110BC3060A703659 /* Pods_Chat_MVVM_Firestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9406572F8B7AC66984E0AF0 /* Pods_Chat_MVVM_Firestore.framework */; };
+		3A319696984AA8880A33512D /* Pods_Chat_MVVM_FirestoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287FF8A689DF0022400E52DD /* Pods_Chat_MVVM_FirestoreTests.framework */; };
+		FB9FC07B2084E3AFEF39AE2E /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B631688C5BFF0ECC0C16F979 /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,16 @@
 		0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0BC4383327DA92AC00C1885C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0BC4383527DA9CBB00C1885C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0BC920AB27DB77B70040D678 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		287FF8A689DF0022400E52DD /* Pods_Chat_MVVM_FirestoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_MVVM_FirestoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33F29ED4C445C3F517E8C2D6 /* Pods-Chat_MVVM_Firestore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_Firestore.debug.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_Firestore/Pods-Chat_MVVM_Firestore.debug.xcconfig"; sourceTree = "<group>"; };
+		4CEF164D040E19902C2C6AA2 /* Pods-Chat_MVVM_FirestoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_FirestoreTests.debug.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_FirestoreTests/Pods-Chat_MVVM_FirestoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		543FDBC0EC21A8AE41D0B265 /* Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.release.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.release.xcconfig"; sourceTree = "<group>"; };
+		70EDF2890AC27DE46E5B54EE /* Pods-Chat_MVVM_FirestoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_FirestoreTests.release.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_FirestoreTests/Pods-Chat_MVVM_FirestoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		A4C783798D2561BF65684D36 /* Pods-Chat_MVVM_Firestore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_Firestore.release.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_Firestore/Pods-Chat_MVVM_Firestore.release.xcconfig"; sourceTree = "<group>"; };
+		B631688C5BFF0ECC0C16F979 /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9406572F8B7AC66984E0AF0 /* Pods_Chat_MVVM_Firestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_MVVM_Firestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E994E1DE6AABD9F60A27FF61 /* Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2424DE58110BC3060A703659 /* Pods_Chat_MVVM_Firestore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A319696984AA8880A33512D /* Pods_Chat_MVVM_FirestoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9FC07B2084E3AFEF39AE2E /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +118,8 @@
 				0B34B2BD27D9F233005781A0 /* Chat_MVVM_FirestoreTests */,
 				0B34B2C727D9F233005781A0 /* Chat_MVVM_FirestoreUITests */,
 				0B34B2A527D9F232005781A0 /* Products */,
+				19D6E72EFEE704FA5A873793 /* Pods */,
+				FD5A90907FDD86041F03ACD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +145,7 @@
 				0BC4383227DA929200C1885C /* ViewModels */,
 				0B34B2AD27D9F232005781A0 /* Main.storyboard */,
 				0B34B2B027D9F233005781A0 /* Assets.xcassets */,
+				0BC920AB27DB77B70040D678 /* GoogleService-Info.plist */,
 				0B34B2B227D9F233005781A0 /* LaunchScreen.storyboard */,
 				0B34B2B527D9F233005781A0 /* Info.plist */,
 			);
@@ -194,6 +214,29 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		19D6E72EFEE704FA5A873793 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33F29ED4C445C3F517E8C2D6 /* Pods-Chat_MVVM_Firestore.debug.xcconfig */,
+				A4C783798D2561BF65684D36 /* Pods-Chat_MVVM_Firestore.release.xcconfig */,
+				E994E1DE6AABD9F60A27FF61 /* Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.debug.xcconfig */,
+				543FDBC0EC21A8AE41D0B265 /* Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.release.xcconfig */,
+				4CEF164D040E19902C2C6AA2 /* Pods-Chat_MVVM_FirestoreTests.debug.xcconfig */,
+				70EDF2890AC27DE46E5B54EE /* Pods-Chat_MVVM_FirestoreTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FD5A90907FDD86041F03ACD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9406572F8B7AC66984E0AF0 /* Pods_Chat_MVVM_Firestore.framework */,
+				B631688C5BFF0ECC0C16F979 /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework */,
+				287FF8A689DF0022400E52DD /* Pods_Chat_MVVM_FirestoreTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +244,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B34B2CE27D9F233005781A0 /* Build configuration list for PBXNativeTarget "Chat_MVVM_Firestore" */;
 			buildPhases = (
+				49B41599BF81ABE02AAE3B5B /* [CP] Check Pods Manifest.lock */,
 				0B34B2A027D9F232005781A0 /* Sources */,
 				0B34B2A127D9F232005781A0 /* Frameworks */,
 				0B34B2A227D9F232005781A0 /* Resources */,
+				E572435855F4829428E92311 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +263,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B34B2D127D9F233005781A0 /* Build configuration list for PBXNativeTarget "Chat_MVVM_FirestoreTests" */;
 			buildPhases = (
+				E7EB1F389C882956B57B47CB /* [CP] Check Pods Manifest.lock */,
 				0B34B2B627D9F233005781A0 /* Sources */,
 				0B34B2B727D9F233005781A0 /* Frameworks */,
 				0B34B2B827D9F233005781A0 /* Resources */,
@@ -236,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B34B2D427D9F233005781A0 /* Build configuration list for PBXNativeTarget "Chat_MVVM_FirestoreUITests" */;
 			buildPhases = (
+				84F7514092DBB244A798A94E /* [CP] Check Pods Manifest.lock */,
 				0B34B2C027D9F233005781A0 /* Sources */,
 				0B34B2C127D9F233005781A0 /* Frameworks */,
 				0B34B2C227D9F233005781A0 /* Resources */,
+				0CEE6B194D2A39B858B4A227 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B34B2B427D9F233005781A0 /* LaunchScreen.storyboard in Resources */,
+				0BC920AC27DB77B70040D678 /* GoogleService-Info.plist in Resources */,
 				0B34B2B127D9F233005781A0 /* Assets.xcassets in Resources */,
 				0B34B2AF27D9F232005781A0 /* Main.storyboard in Resources */,
 			);
@@ -319,6 +368,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CEE6B194D2A39B858B4A227 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49B41599BF81ABE02AAE3B5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chat_MVVM_Firestore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84F7514092DBB244A798A94E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E572435855F4829428E92311 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chat_MVVM_Firestore/Pods-Chat_MVVM_Firestore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chat_MVVM_Firestore/Pods-Chat_MVVM_Firestore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chat_MVVM_Firestore/Pods-Chat_MVVM_Firestore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7EB1F389C882956B57B47CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chat_MVVM_FirestoreTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B34B2A027D9F232005781A0 /* Sources */ = {
@@ -510,6 +662,7 @@
 		};
 		0B34B2CF27D9F233005781A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33F29ED4C445C3F517E8C2D6 /* Pods-Chat_MVVM_Firestore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -537,6 +690,7 @@
 		};
 		0B34B2D027D9F233005781A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4C783798D2561BF65684D36 /* Pods-Chat_MVVM_Firestore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -564,6 +718,7 @@
 		};
 		0B34B2D227D9F233005781A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CEF164D040E19902C2C6AA2 /* Pods-Chat_MVVM_FirestoreTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -588,6 +743,7 @@
 		};
 		0B34B2D327D9F233005781A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70EDF2890AC27DE46E5B54EE /* Pods-Chat_MVVM_FirestoreTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -612,6 +768,7 @@
 		};
 		0B34B2D527D9F233005781A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E994E1DE6AABD9F60A27FF61 /* Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -634,6 +791,7 @@
 		};
 		0B34B2D627D9F233005781A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 543FDBC0EC21A8AE41D0B265 /* Pods-Chat_MVVM_Firestore-Chat_MVVM_FirestoreUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

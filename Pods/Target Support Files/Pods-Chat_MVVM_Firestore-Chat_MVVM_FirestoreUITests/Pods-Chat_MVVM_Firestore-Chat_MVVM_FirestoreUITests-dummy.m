@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests : NSObject
+@end
+@implementation PodsDummy_Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests
+@end
