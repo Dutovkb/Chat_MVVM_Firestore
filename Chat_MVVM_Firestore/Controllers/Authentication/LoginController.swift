@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol AuthenticationControllerProtocol {
+
+    /// Checks that form fields are filled out
+    func checkFormStatus()
+}
+
 final class LoginController: UIViewController {
     
     private enum Constants {
@@ -89,16 +95,6 @@ final class LoginController: UIViewController {
         
         configureUI()
     }
-
-    private func checkFormStatus() {
-        if viewModel.formIsValid {
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = .systemPink
-        } else {
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = .systemPurple
-        }
-    }
     
     private func configureUI() {
         view.backgroundColor = .systemPink
@@ -152,6 +148,8 @@ final class LoginController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 
+    // MARK: Selectors
+
     @objc
     private func handleShowSignUp() {
         let controller = RegistrationController()
@@ -170,6 +168,19 @@ final class LoginController: UIViewController {
 
     @objc
     private func handleLogin() {
-        print("Email: \(viewModel.email?.lowercased()), password: \(viewModel.password)")
+        print("Email: \(viewModel.email?.lowercased() ?? "0"), password: \(viewModel.password ?? "0")")
+    }
+}
+
+extension LoginController: AuthenticationControllerProtocol {
+
+    func checkFormStatus() {
+        if viewModel.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .systemPink
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .systemPurple
+        }
     }
 }

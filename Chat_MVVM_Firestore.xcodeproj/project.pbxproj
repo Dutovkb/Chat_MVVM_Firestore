@@ -24,6 +24,7 @@
 		0BC4382F27DA590400C1885C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382E27DA590400C1885C /* CustomTextField.swift */; };
 		0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */; };
 		0BC4383427DA92AC00C1885C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383327DA92AC00C1885C /* LoginViewModel.swift */; };
+		0BC4383627DA9CBB00C1885C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4383527DA9CBB00C1885C /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0BC4382E27DA590400C1885C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0BC4383027DA79F600C1885C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0BC4383327DA92AC00C1885C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0BC4383527DA9CBB00C1885C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				0BC4383327DA92AC00C1885C /* LoginViewModel.swift */,
+				0BC4383527DA9CBB00C1885C /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				0B34B2A827D9F232005781A0 /* AppDelegate.swift in Sources */,
 				0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */,
 				0B34B2AA27D9F232005781A0 /* SceneDelegate.swift in Sources */,
+				0BC4383627DA9CBB00C1885C /* RegisterViewModel.swift in Sources */,
 				0BC4382727D9F4DD00C1885C /* RegistrationController.swift in Sources */,
 				0BC4382527D9F4D300C1885C /* LoginController.swift in Sources */,
 				0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */,

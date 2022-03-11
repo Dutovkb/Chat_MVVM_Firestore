@@ -24,6 +24,8 @@ final class RegistrationController: UIViewController {
         static let accountButtonFontSize: CGFloat = 16
     }
 
+    private var viewModel = RegisterViewModel()
+
     private let addPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -83,7 +85,9 @@ final class RegistrationController: UIViewController {
         button.setHeight(height: Constants.sighUpButtonHeight)
         button.layer.cornerRadius = Constants.signUpCornerRadius
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.sighUpButtonTitleFontSize)
-        button.backgroundColor = .systemPink
+        button.backgroundColor = .systemPurple
+        button.addTarget(self, action: #selector(handleSignup), for: .touchUpInside)
+        button.isEnabled = false
         return button
     }()
 
@@ -111,6 +115,7 @@ final class RegistrationController: UIViewController {
         configureAddPhotoButton()
         configureStackView()
         confugireAccountButtonConstraints()
+        configureTextFields()
     }
 
     private func configureStackView() {
@@ -148,13 +153,69 @@ final class RegistrationController: UIViewController {
                                         right: view.rightAnchor)
     }
 
+    private func configureTextFields() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+
+    // MARK: Selectors
+
     @objc
     private func handleSelectPhoto() {
-        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
     }
 
     @objc
     private func handleShowLogIn() {
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc
+    private func textDidChange(sender: UITextField) {
+
+        switch sender {
+            case emailTextField: viewModel.email = sender.text
+            case fullNameTextField: viewModel.fullname = sender.text
+            case userNameTextField: viewModel.username = sender.text
+            case passwordTextField: viewModel.password = sender.text
+            default:
+                return
+        }
+        checkFormStatus()
+    }
+
+    @objc
+    private func handleSignup() {
+        print("Email: \(viewModel.email?.lowercased()), full name: \(viewModel.fullname), username: \(viewModel.username), password: \(viewModel.password)")
+    }
+}
+
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as? UIImage
+        addPhotoButton.setImage(image?.withRenderingMode(.alwaysOriginal), for: .normal)
+        addPhotoButton.layer.borderColor = UIColor(white: 1, alpha: 0.7).cgColor
+        addPhotoButton.layer.borderWidth = 3.0
+        addPhotoButton.layer.cornerRadius = Constants.addPhotoButtonHeight / 2
+        addPhotoButton.layer.masksToBounds = true
+        addPhotoButton.imageView?.contentMode = .scaleAspectFill
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RegistrationController: AuthenticationControllerProtocol {
+
+    func checkFormStatus() {
+        if viewModel.formIsValid {
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = .systemPink
+        } else {
+            signUpButton.isEnabled = false
+            signUpButton.backgroundColor = .systemPurple
+        }
     }
 }
