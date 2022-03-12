@@ -37,41 +37,29 @@ final class RegistrationController: UIViewController {
     }()
 
     private lazy var emailContainerView: UIView = {
-        if let image = UIImage(named: "ic_mail_outline_white_2x") {
-            let containerView = InputContainerView(image: image, textField: emailTextField)
-            return containerView
-        }
-        return InputContainerView(image: UIImage(), textField: emailTextField)
+        guard let image = UIImage(named: "ic_mail_outline_white_2x") else { return UIView() }
+        return InputContainerView(image: image, textField: emailTextField)
     }()
 
     private let emailTextField = CustomTextField(placeholder: "E-mail")
 
     private lazy var fullNameContainerView: UIView = {
-        if let image = UIImage(named: "ic_person_outline_white_2x") {
-            let containerView = InputContainerView(image: image, textField: fullNameTextField)
-            return containerView
-        }
-        return InputContainerView(image: UIImage(), textField: fullNameTextField)
+        guard let image = UIImage(named: "ic_person_outline_white_2x") else { return UIView() }
+        return InputContainerView(image: image, textField: fullNameTextField)
     }()
 
     private let fullNameTextField = CustomTextField(placeholder: "Full name")
 
     private lazy var userNameContainerView: UIView = {
-        if let image = UIImage(named: "ic_person_outline_white_2x") {
-            let containerView = InputContainerView(image: image, textField: userNameTextField)
-            return containerView
-        }
-        return InputContainerView(image: UIImage(), textField: userNameTextField)
+        guard let image = UIImage(named: "ic_person_outline_white_2x") else { return UIView() }
+        return InputContainerView(image: image, textField: userNameTextField)
     }()
 
     private let userNameTextField = CustomTextField(placeholder: "Username")
 
-    private lazy var passwordContainerView: InputContainerView = {
-        if let image = UIImage(named: "ic_lock_outline_white_2x") {
-            let containerView = InputContainerView(image: image, textField: passwordTextField)
-            return containerView
-        }
-        return InputContainerView(image: UIImage(), textField: passwordTextField)
+    private lazy var passwordContainerView: UIView = {
+        guard let image = UIImage(named: "ic_lock_outline_white_2x") else { return UIView() }
+        return InputContainerView(image: image, textField: passwordTextField)
     }()
 
     private let passwordTextField: CustomTextField = {

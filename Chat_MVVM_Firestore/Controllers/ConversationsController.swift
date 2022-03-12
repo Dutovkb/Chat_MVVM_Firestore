@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ConversationsController: UIViewController {
 
@@ -14,8 +15,11 @@ class ConversationsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        authenticateUser()
     }
-    
+
+    // MARK: Configure UI
+
     private func configureUI() {
         view.backgroundColor = .white
         configureNavigationController()
@@ -61,10 +65,41 @@ class ConversationsController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ConversationCell")
     }
-    
+
+    // MARK: Configure API
+
+    private func authenticateUser() {
+        if Auth.auth().currentUser?.uid == nil {
+            presentLoginScreen()
+        } else {
+            print("DEBUG: user id is: \(Auth.auth().currentUser?.uid)")
+        }
+    }
+
+    private func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("DEBUG: Error signing out")
+        }
+    }
+
+    // MARK: Selectors
+
     @objc
     private func showProfile() {
-        print("Tapped on button")
+        logout()
+    }
+
+    // MARK: Helpers
+
+    private func presentLoginScreen() {
+        DispatchQueue.main.async {
+            let controller = LoginController()
+            let navigationController = UINavigationController(rootViewController: controller)
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
 }
 
