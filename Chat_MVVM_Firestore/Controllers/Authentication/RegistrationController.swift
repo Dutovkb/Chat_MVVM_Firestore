@@ -219,7 +219,7 @@ final class RegistrationController: UIViewController {
                             print("DEBUG: Failed to upload user data with error: \(error.localizedDescription)")
                             return
                         }
-                        print("DEBUG: Did create user..")
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }
