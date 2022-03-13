@@ -16,6 +16,7 @@ final class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchUsers()
     }
 
     // MARK: Configure UI
@@ -35,6 +36,10 @@ final class NewMessageController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifier)
         tableView.rowHeight = 80
+    }
+
+    private func fetchUsers() {
+        Service.fetchUsres()
     }
 
     // MARK: Selectors

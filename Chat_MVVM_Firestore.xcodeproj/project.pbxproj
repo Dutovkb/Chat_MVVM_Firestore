@@ -31,6 +31,8 @@
 		0BC920BC27DDE62D0040D678 /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC920BB27DDE62D0040D678 /* RegistrationCredentials.swift */; };
 		0BC920BF27DDFA4A0040D678 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC920BE27DDFA4A0040D678 /* NewMessageController.swift */; };
 		0BC920C227DE13C60040D678 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC920C127DE13C60040D678 /* UserCell.swift */; };
+		0BC920C427DE54510040D678 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC920C327DE54510040D678 /* User.swift */; };
+		0BC920C627DE54CE0040D678 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC920C527DE54CE0040D678 /* Service.swift */; };
 		2424DE58110BC3060A703659 /* Pods_Chat_MVVM_Firestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9406572F8B7AC66984E0AF0 /* Pods_Chat_MVVM_Firestore.framework */; };
 		3A319696984AA8880A33512D /* Pods_Chat_MVVM_FirestoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287FF8A689DF0022400E52DD /* Pods_Chat_MVVM_FirestoreTests.framework */; };
 		FB9FC07B2084E3AFEF39AE2E /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B631688C5BFF0ECC0C16F979 /* Pods_Chat_MVVM_Firestore_Chat_MVVM_FirestoreUITests.framework */; };
@@ -82,6 +84,8 @@
 		0BC920BB27DDE62D0040D678 /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
 		0BC920BE27DDFA4A0040D678 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		0BC920C127DE13C60040D678 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		0BC920C327DE54510040D678 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0BC920C527DE54CE0040D678 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		287FF8A689DF0022400E52DD /* Pods_Chat_MVVM_FirestoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_MVVM_FirestoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F29ED4C445C3F517E8C2D6 /* Pods-Chat_MVVM_Firestore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_Firestore.debug.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_Firestore/Pods-Chat_MVVM_Firestore.debug.xcconfig"; sourceTree = "<group>"; };
 		4CEF164D040E19902C2C6AA2 /* Pods-Chat_MVVM_FirestoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat_MVVM_FirestoreTests.debug.xcconfig"; path = "Target Support Files/Pods-Chat_MVVM_FirestoreTests/Pods-Chat_MVVM_FirestoreTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				0BC920B327DD00DD0040D678 /* AuthService */,
+				0BC920C527DE54CE0040D678 /* Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				0BC920BB27DDE62D0040D678 /* RegistrationCredentials.swift */,
+				0BC920C327DE54510040D678 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,10 +556,12 @@
 				0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */,
 				0BC920B527DD00ED0040D678 /* AuthService.swift in Sources */,
 				0BC920BF27DDFA4A0040D678 /* NewMessageController.swift in Sources */,
+				0BC920C627DE54CE0040D678 /* Service.swift in Sources */,
 				0B34B2AA27D9F232005781A0 /* SceneDelegate.swift in Sources */,
 				0BC4383627DA9CBB00C1885C /* RegisterViewModel.swift in Sources */,
 				0BC4382727D9F4DD00C1885C /* RegistrationController.swift in Sources */,
 				0BC4382527D9F4D300C1885C /* LoginController.swift in Sources */,
+				0BC920C427DE54510040D678 /* User.swift in Sources */,
 				0BC920B927DDE2930040D678 /* Constants.swift in Sources */,
 				0BC4383127DA79F600C1885C /* UIViewController+Extension.swift in Sources */,
 				0BC4382F27DA590400C1885C /* CustomTextField.swift in Sources */,
