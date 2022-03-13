@@ -33,7 +33,7 @@ final class NewMessageController: UITableViewController {
 
     private func configureTableView() {
         tableView.tableFooterView = UIView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "NewMessageCell")
+        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifier)
         tableView.rowHeight = 80
     }
 
@@ -51,10 +51,8 @@ extension NewMessageController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewMessageCell", for: indexPath)
-        cell.backgroundColor = .white
-        cell.textLabel?.text = "New message"
-        cell.textLabel?.textColor = .black
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.identifier, for: indexPath) as? UserCell
+        else { return UITableViewCell() }
         return cell
     }
 

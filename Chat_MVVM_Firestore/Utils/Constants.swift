@@ -64,3 +64,15 @@ enum ConversationConsts {
 
     static let newMessageButtonCornerRadius = newMessageButtonHeight / 2
 }
+
+enum UserCellConsts {
+    static let profileImageViewPaddingLeft: CGFloat = 12
+    static let profileImageViewHeight: CGFloat = 56
+    static let profileImageViewWidth: CGFloat = 56
+    static let profileImageViewCornerRadius = profileImageViewHeight / 2
+
+    static let stackViewSpacing: CGFloat = 2
+    static let stackViewPaddingLeft: CGFloat = 12
+
+    static let fontSize: CGFloat = 14
+}
