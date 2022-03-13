@@ -84,7 +84,7 @@ final class LoginController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .systemPink
-        configureNavigationController()
+        setupNavigationController()
         configureGradientLayer()
         configureIconConstraints()
         configureStackView()
@@ -92,7 +92,7 @@ final class LoginController: UIViewController {
         configureTextFields()
     }
     
-    private func configureNavigationController() {
+    private func setupNavigationController() {
         navigationController?.navigationBar.isHidden = true
     }
     
