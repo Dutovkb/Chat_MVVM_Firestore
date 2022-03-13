@@ -72,5 +72,6 @@ final class UserCell: UITableViewCell {
         stackView.centerY(inView: profileImageView,
                           leftAnchor: profileImageView.rightAnchor,
                           paddingLeft: UserCellConsts.stackViewPaddingLeft)
+        stackView.anchor(right: self.rightAnchor, paddingRight: -UserCellConsts.stackViewPaddingLeft)
     }
 }
