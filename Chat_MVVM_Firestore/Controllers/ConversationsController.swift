@@ -10,7 +10,20 @@ import Firebase
 
 class ConversationsController: UIViewController {
 
+    // MARK: Properties
+
     private let tableView = UITableView(frame: .zero)
+
+    private let newMessageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.backgroundColor = .systemPurple
+        button.tintColor = .white
+        button.setDimensions(height: ConversationConsts.newMessageButtonHeight,
+                             width: ConversationConsts.newMessageButtonWidth)
+        button.layer.cornerRadius = ConversationConsts.newMessageButtonCornerRadius
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +38,7 @@ class ConversationsController: UIViewController {
         configureNavigationController()
         configureNavigationItem()
         configureTableView()
+        configureNewMessageButton()
     }
     
     private func configureNavigationController() {
@@ -66,6 +80,15 @@ class ConversationsController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ConversationCell")
     }
 
+    private func configureNewMessageButton() {
+        view.addSubview(newMessageButton)
+        newMessageButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                right: view.rightAnchor,
+                                paddingBottom: ConversationConsts.newMessagePaddingBottom,
+                                paddingRight: ConversationConsts.newMessagePaddingRight)
+        newMessageButton.addTarget(self, action: #selector(showNewMessage), for: .touchUpInside)
+    }
+
     // MARK: Configure API
 
     private func authenticateUser() {
@@ -90,6 +113,14 @@ class ConversationsController: UIViewController {
     @objc
     private func showProfile() {
         logout()
+    }
+
+    @objc
+    private func showNewMessage() {
+        let controller = NewMessageController()
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
 
     // MARK: Helpers
