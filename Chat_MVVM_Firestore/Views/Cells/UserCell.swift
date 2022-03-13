@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class UserCell: UITableViewCell {
     static let identifier = "\(UserCell.self)"
     
     // MARK: Properties
+
+    var user: User? {
+        didSet { configure() }
+    }
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,7 +29,6 @@ final class UserCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: UserCellConsts.fontSize)
         label.textColor = .black
-        label.text = "Spiderman"
         return label
     }()
 
@@ -32,7 +36,6 @@ final class UserCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: UserCellConsts.fontSize)
         label.textColor = .lightGray
-        label.text = "Peter Parker"
         return label
     }()
     
@@ -43,6 +46,16 @@ final class UserCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Configure cell
+
+    private func configure() {
+        guard let user = user,
+              let url = URL(string: user.profileImageUrl) else { return }
+        fullnameLabel.text = user.fullname
+        usernameLabel.text = user.username
+        profileImageView.sd_setImage(with: url)
     }
     
     // MARK: Configure UI
