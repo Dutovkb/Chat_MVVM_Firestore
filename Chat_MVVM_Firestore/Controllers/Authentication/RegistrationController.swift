@@ -10,20 +10,7 @@ import Firebase
 
 final class RegistrationController: UIViewController {
 
-    private enum Constants {
-        static let addPhotoButtonHeight: CGFloat = 120
-        static let addPhotoButtonWidth: CGFloat = 120
-        static let addPhotoButtonPadding: CGFloat = 32
-
-        static let sighUpButtonHeight: CGFloat = 50
-        static let signUpCornerRadius: CGFloat = 5
-        static let sighUpButtonTitleFontSize: CGFloat = 16
-
-        static let stackViewSpacing: CGFloat = 16
-        static let stackViewPadding: CGFloat = 32
-
-        static let accountButtonFontSize: CGFloat = 16
-    }
+    // MARK: Properties
 
     private var viewModel = RegisterViewModel()
     private var profileImage: UIImage?
@@ -72,9 +59,9 @@ final class RegistrationController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Sign up", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setHeight(height: Constants.sighUpButtonHeight)
-        button.layer.cornerRadius = Constants.signUpCornerRadius
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.sighUpButtonTitleFontSize)
+        button.setHeight(height: RegistrationConsts.sighUpButtonHeight)
+        button.layer.cornerRadius = RegistrationConsts.signUpCornerRadius
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: RegistrationConsts.sighUpButtonTitleFontSize)
         button.backgroundColor = .systemPurple
         button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
         button.isEnabled = false
@@ -84,20 +71,24 @@ final class RegistrationController: UIViewController {
     private let alreadyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Allready have an account?",
-                                                        attributes: [.font: UIFont.systemFont(ofSize: Constants.accountButtonFontSize),
+                                                        attributes: [.font: UIFont.systemFont(ofSize: RegistrationConsts.accountButtonFontSize),
                                                                      .foregroundColor: UIColor.white])
         attributedTitle.append(NSAttributedString(string: " Log in",
-                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: Constants.accountButtonFontSize),
+                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: RegistrationConsts.accountButtonFontSize),
                                                                .foregroundColor: UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(handleShowLogIn), for: .touchUpInside)
         return button
     }()
+
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
+
+    // MARK: Configure UI
 
     private func configureUI() {
         view.backgroundColor = .systemPurple
@@ -115,7 +106,7 @@ final class RegistrationController: UIViewController {
                                                        passwordContainerView,
                                                        signUpButton])
         stackView.axis = .vertical
-        stackView.spacing = Constants.stackViewSpacing
+        stackView.spacing = RegistrationConsts.stackViewSpacing
         view.addSubview(stackView)
         configureStackViewConstraints(for: stackView)
     }
@@ -124,16 +115,16 @@ final class RegistrationController: UIViewController {
         stackView.anchor(top: addPhotoButton.bottomAnchor,
                          left: view.leftAnchor,
                          right: view.rightAnchor,
-                         paddingTop: Constants.stackViewPadding,
-                         paddingLeft: Constants.stackViewPadding,
-                         paddingRight: -Constants.stackViewPadding)
+                         paddingTop: RegistrationConsts.stackViewPadding,
+                         paddingLeft: RegistrationConsts.stackViewPadding,
+                         paddingRight: -RegistrationConsts.stackViewPadding)
     }
 
     private func configureAddPhotoButton() {
         view.addSubview(addPhotoButton)
         addPhotoButton.centerX(inView: view)
-        addPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: Constants.addPhotoButtonPadding)
-        addPhotoButton.setDimensions(height: Constants.addPhotoButtonHeight, width: Constants.addPhotoButtonWidth)
+        addPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: RegistrationConsts.addPhotoButtonPadding)
+        addPhotoButton.setDimensions(height: RegistrationConsts.addPhotoButtonHeight, width: RegistrationConsts.addPhotoButtonWidth)
     }
 
     private func confugireAccountButtonConstraints() {
@@ -143,14 +134,36 @@ final class RegistrationController: UIViewController {
                                         right: view.rightAnchor)
     }
 
+    // MARK: Configure observers
+
     private func configureTextFields() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        configureNotificationObnservers()
+    }
+
+    private func configureNotificationObnservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     // MARK: Selectors
+
+    @objc
+    private func keyboardWillShow() {
+        if view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 88
+        }
+    }
+
+    @objc
+    private func keyboardWillHide() {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
 
     @objc
     private func handleSelectPhoto() {
@@ -192,11 +205,15 @@ final class RegistrationController: UIViewController {
                                                   username: username,
                                                   profileImage: profileImage)
 
+        showLoader(true, withText: "Signing you up")
+
         AuthService.shared.createUser(credentials: credentials) { error in
             if let error = error {
                 print("DEBUG: Failed to create user with error: \(error.localizedDescription)")
+                self.showLoader(false)
                 return
             }
+            self.showLoader(false)
             self.dismiss(animated: true, completion: nil)
         }
 
@@ -210,7 +227,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         addPhotoButton.setImage(image?.withRenderingMode(.alwaysOriginal), for: .normal)
         addPhotoButton.layer.borderColor = UIColor(white: 1, alpha: 0.7).cgColor
         addPhotoButton.layer.borderWidth = 3.0
-        addPhotoButton.layer.cornerRadius = Constants.addPhotoButtonHeight / 2
+        addPhotoButton.layer.cornerRadius = RegistrationConsts.addPhotoButtonHeight / 2
         addPhotoButton.layer.masksToBounds = true
         addPhotoButton.imageView?.contentMode = .scaleAspectFill
         dismiss(animated: true, completion: nil)

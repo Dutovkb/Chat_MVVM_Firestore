@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import JGProgressHUD
 
 protocol AuthenticationControllerProtocol {
 
@@ -15,22 +16,6 @@ protocol AuthenticationControllerProtocol {
 }
 
 final class LoginController: UIViewController {
-    
-    private enum Constants {
-        static let iconHeight: CGFloat = 120
-        static let iconWidth: CGFloat = 120
-        static let iconPaddingTop: CGFloat = 32
-        
-        static let buttonCornerRadius: CGFloat = 5
-        static let buttonTitleFontSize: CGFloat = 16
-
-        static let accountButtonFontSize: CGFloat = 16
-        
-        static let stackViewSpacing: CGFloat = 16
-        static let stackViewPadding: CGFloat = 32
-
-        static let loginButtonHeight: CGFloat = 50
-    }
 
     private var viewModel = LoginViewModel()
     
@@ -69,9 +54,9 @@ final class LoginController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setHeight(height: Constants.loginButtonHeight)
-        button.layer.cornerRadius = Constants.buttonCornerRadius
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.buttonTitleFontSize)
+        button.setHeight(height: LoginConsts.loginButtonHeight)
+        button.layer.cornerRadius = LoginConsts.buttonCornerRadius
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: LoginConsts.buttonTitleFontSize)
         button.backgroundColor = .systemPurple
         button.isEnabled = false
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
@@ -81,10 +66,10 @@ final class LoginController: UIViewController {
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Don't have an account?",
-                                                        attributes: [.font: UIFont.systemFont(ofSize: Constants.accountButtonFontSize),
+                                                        attributes: [.font: UIFont.systemFont(ofSize: LoginConsts.accountButtonFontSize),
                                                                      .foregroundColor: UIColor.white])
         attributedTitle.append(NSAttributedString(string: " Sign up",
-                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: Constants.accountButtonFontSize),
+                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: LoginConsts.accountButtonFontSize),
                                                                .foregroundColor: UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
@@ -114,8 +99,8 @@ final class LoginController: UIViewController {
     private func configureIconConstraints() {
         view.addSubview(iconImage)
         iconImage.centerX(inView: view)
-        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: Constants.iconPaddingTop)
-        iconImage.setDimensions(height: Constants.iconHeight, width: Constants.iconWidth)
+        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: LoginConsts.iconPaddingTop)
+        iconImage.setDimensions(height: LoginConsts.iconHeight, width: LoginConsts.iconWidth)
     }
     
     private func configureStackView() {
@@ -123,7 +108,7 @@ final class LoginController: UIViewController {
                                                        passwordContainerView,
                                                        loginButton])
         stackView.axis = .vertical
-        stackView.spacing = Constants.stackViewSpacing
+        stackView.spacing = LoginConsts.stackViewSpacing
         view.addSubview(stackView)
         configureStackViewConstraints(for: stackView)
     }
@@ -132,9 +117,9 @@ final class LoginController: UIViewController {
         stackView.anchor(top: iconImage.bottomAnchor,
                          left: view.leftAnchor,
                          right: view.rightAnchor,
-                         paddingTop: Constants.stackViewPadding,
-                         paddingLeft: Constants.stackViewPadding,
-                         paddingRight: -Constants.stackViewPadding)
+                         paddingTop: LoginConsts.stackViewPadding,
+                         paddingLeft: LoginConsts.stackViewPadding,
+                         paddingRight: -LoginConsts.stackViewPadding)
     }
 
     private func confugireAccountButtonConstraints() {
@@ -171,12 +156,15 @@ final class LoginController: UIViewController {
     private func handleLogin() {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
+        showLoader(true)
 
         AuthService.shared.logUserInWith(email: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to log in with error: \(error.localizedDescription)")
+                self.showLoader(false)
                 return
             }
+            self.showLoader(false)
             self.dismiss(animated: true, completion: nil)
         }
     }

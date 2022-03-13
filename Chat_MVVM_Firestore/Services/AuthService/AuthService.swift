@@ -8,14 +8,6 @@
 import UIKit
 import Firebase
 
-struct RegistrationCredentials {
-    let email: String
-    let password: String
-    let fullname: String
-    let username: String
-    let profileImage: UIImage
-}
-
 struct AuthService {
     static let shared = AuthService()
 
@@ -31,7 +23,7 @@ struct AuthService {
 
         reference.putData(imageData, metadata: nil) { (meta, error) in
             if let error = error {
-                print("DEBUG: Failed to upload image with error: \(error.localizedDescription)")
+                completion!(error)
                 return
             }
 
@@ -40,7 +32,7 @@ struct AuthService {
 
                 Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result, error) in
                     if let error = error {
-                        print("DEBUG: Failed to create user with error: \(error.localizedDescription)")
+                        completion!(error)
                         return
                     }
 
