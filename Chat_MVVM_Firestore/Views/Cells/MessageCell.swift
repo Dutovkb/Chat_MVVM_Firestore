@@ -12,6 +12,10 @@ final class MessageCell: UICollectionViewCell {
 
     // MARK: Properties
 
+    var message: Message? {
+        didSet { configure() }
+    }
+
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -22,7 +26,6 @@ final class MessageCell: UICollectionViewCell {
 
     private let textView: UITextView = {
         let textView = UITextView()
-        textView.text = "Some text message for mev "
         textView.backgroundColor = .clear
         textView.font = .systemFont(ofSize: 16)
         textView.isScrollEnabled = false
@@ -66,6 +69,22 @@ final class MessageCell: UICollectionViewCell {
         bubbleContainer.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
         bubbleContainer.addSubview(textView)
 
-        textView.anchor(top: bubbleContainer.topAnchor, left: bubbleContainer.leftAnchor, bottom: bubbleContainer.bottomAnchor, right: bubbleContainer.rightAnchor, paddingTop: 4, paddingLeft: 12, paddingBottom: -4, paddingRight: -12)
+        textView.anchor(top: bubbleContainer.topAnchor,
+                        left: bubbleContainer.leftAnchor,
+                        bottom: bubbleContainer.bottomAnchor,
+                        right: bubbleContainer.rightAnchor,
+                        paddingTop: 4,
+                        paddingLeft: 12,
+                        paddingBottom: -4,
+                        paddingRight: -12)
+    }
+
+    private func configure() {
+        guard let message = message else { return }
+        let viewmodel = MessageViewModel(message: message)
+
+        bubbleContainer.backgroundColor = viewmodel.messageBackgroundColor
+        textView.textColor = viewmodel.messageTextColor
+        textView.text = message.text
     }
 }

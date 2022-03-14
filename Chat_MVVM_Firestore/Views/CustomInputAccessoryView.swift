@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol CustomInputAccessoryViewDelegate: AnyObject {
+
+    func inputView(_ inputView: CustomInputAccessoryView, wantsToSend message: String)
+}
+
 final class CustomInputAccessoryView: UIView {
 
     // MARK: Properties
 
-    private lazy var messageInputTextView: UITextView = {
+    weak var delegate: CustomInputAccessoryViewDelegate?
+
+    lazy var messageInputTextView: UITextView = {
         let textview = UITextView()
         textview.font = UIFont.systemFont(ofSize: 16)
         textview.textColor = .black
@@ -21,7 +28,7 @@ final class CustomInputAccessoryView: UIView {
     }()
 
     private lazy var sendButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Send", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.systemPurple, for: .normal)
@@ -106,7 +113,8 @@ final class CustomInputAccessoryView: UIView {
 
     @objc
     private func handleSendMessage() {
-
+        guard let message = messageInputTextView.text else { return }
+        delegate?.inputView(self, wantsToSend: message)
     }
 
     @objc
