@@ -18,7 +18,7 @@ final class ChatController: UICollectionViewController {
 
     init(user: User) {
         self.user = user
-        super.init(collectionViewLayout: UICollectionViewLayout())
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
 
     required init?(coder: NSCoder) {
@@ -39,7 +39,33 @@ final class ChatController: UICollectionViewController {
     }
 
     private func configureUI() {
-        self.collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .white
         configureNavigationController(withTitle: user.username, prefersLargeTitles: false)
+        configureCollectionView()
+    }
+
+    private func configureCollectionView() {
+        collectionView.register(MessageCell.self, forCellWithReuseIdentifier: MessageCell.identifier)
+        collectionView.alwaysBounceVertical = true
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageCell.identifier, for: indexPath) as? MessageCell else { return UICollectionViewCell() }
+        return cell
+    }
+}
+
+extension ChatController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 16, left: 0, bottom: 16, right: 0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
     }
 }
