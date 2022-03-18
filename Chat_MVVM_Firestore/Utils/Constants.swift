@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum LoginConsts {
 
@@ -75,4 +76,8 @@ enum UserCellConsts {
     static let stackViewPaddingLeft: CGFloat = 12
 
     static let fontSize: CGFloat = 14
+}
+
+enum Firebase {
+    static let collectionMessages = Firestore.firestore().collection("messages")
 }
