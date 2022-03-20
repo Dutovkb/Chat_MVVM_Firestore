@@ -35,11 +35,15 @@ class ConversationsController: UIViewController {
         fetchConversations()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationController(withTitle: "Messages", prefersLargeTitles: true)
+    }
+
     // MARK: - Configure UI
 
     private func configureUI() {
         view.backgroundColor = .white
-        configureNavigationController(withTitle: "Messages", prefersLargeTitles: true)
         configureNavigationItem()
         configureTableView()
         configureNewMessageButton()
@@ -62,7 +66,7 @@ class ConversationsController: UIViewController {
         tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ConversationCell")
+        tableView.register(ConversationCell.self, forCellReuseIdentifier: ConversationCell.identifier)
     }
 
     private func configureNewMessageButton() {
@@ -126,6 +130,11 @@ class ConversationsController: UIViewController {
             self.present(navigationController, animated: true, completion: nil)
         }
     }
+
+    private func showChatController(forUser user: User) {
+        let controller = ChatController(user: user)
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
     // MARK: - Extensions
@@ -136,14 +145,14 @@ extension ConversationsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationCell", for: indexPath)
-        cell.textLabel?.text = conversations[indexPath.row].message.text
-        cell.backgroundColor = .white
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ConversationCell.identifier, for: indexPath) as? ConversationCell else { return UITableViewCell() }
+        cell.conversation = conversations[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let user = conversations[indexPath.row].user
+        showChatController(forUser: user)
     }
 }
 
@@ -151,7 +160,6 @@ extension ConversationsController: NewMessageControllerDelegate {
 
     func controller(_ controller: NewMessageController, wantsToStartChatWith user: User) {
         controller.dismiss(animated: true, completion: nil)
-        let chatController = ChatController(user: user)
-        navigationController?.pushViewController(chatController, animated: true)
+        showChatController(forUser: user)
     }
 }

@@ -18,6 +18,8 @@
 		0B34B2CB27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */; };
 		0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B34B2D727D9F266005781A0 /* ConversationsController.swift */; };
 		0B47B6FE27E73FDE00D7CFA0 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B47B6FD27E73FDE00D7CFA0 /* Conversation.swift */; };
+		0B47B70027E779C800D7CFA0 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B47B6FF27E779C800D7CFA0 /* ConversationCell.swift */; };
+		0B47B70227E77F2200D7CFA0 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B47B70127E77F2200D7CFA0 /* ConversationViewModel.swift */; };
 		0BC4382527D9F4D300C1885C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382427D9F4D300C1885C /* LoginController.swift */; };
 		0BC4382727D9F4DD00C1885C /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382627D9F4DD00C1885C /* RegistrationController.swift */; };
 		0BC4382A27D9FFE600C1885C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4382927D9FFE600C1885C /* UIView+Extension.swift */; };
@@ -77,6 +79,8 @@
 		0B34B2CA27D9F233005781A0 /* Chat_MVVM_FirestoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat_MVVM_FirestoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0B34B2D727D9F266005781A0 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		0B47B6FD27E73FDE00D7CFA0 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		0B47B6FF27E779C800D7CFA0 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		0B47B70127E77F2200D7CFA0 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		0BC4382427D9F4D300C1885C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0BC4382627D9F4DD00C1885C /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		0BC4382927D9FFE600C1885C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				0BC4383327DA92AC00C1885C /* LoginViewModel.swift */,
 				0BC4383527DA9CBB00C1885C /* RegisterViewModel.swift */,
 				0BC920D027DFE73D0040D678 /* MessageViewModel.swift */,
+				0B47B70127E77F2200D7CFA0 /* ConversationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			children = (
 				0BC920C127DE13C60040D678 /* UserCell.swift */,
 				0BC920CC27DFA4DD0040D678 /* MessageCell.swift */,
+				0B47B6FF27E779C800D7CFA0 /* ConversationCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				0BC4383427DA92AC00C1885C /* LoginViewModel.swift in Sources */,
 				0BC920C227DE13C60040D678 /* UserCell.swift in Sources */,
 				0BC4382A27D9FFE600C1885C /* UIView+Extension.swift in Sources */,
+				0B47B70027E779C800D7CFA0 /* ConversationCell.swift in Sources */,
 				0B34B2A827D9F232005781A0 /* AppDelegate.swift in Sources */,
 				0B34B2D827D9F266005781A0 /* ConversationsController.swift in Sources */,
 				0BC920D127DFE73D0040D678 /* MessageViewModel.swift in Sources */,
@@ -587,6 +594,7 @@
 				0BC920CD27DFA4DD0040D678 /* MessageCell.swift in Sources */,
 				0B47B6FE27E73FDE00D7CFA0 /* Conversation.swift in Sources */,
 				0BC920BF27DDFA4A0040D678 /* NewMessageController.swift in Sources */,
+				0B47B70227E77F2200D7CFA0 /* ConversationViewModel.swift in Sources */,
 				0BC920C627DE54CE0040D678 /* Service.swift in Sources */,
 				0B34B2AA27D9F232005781A0 /* SceneDelegate.swift in Sources */,
 				0BC4383627DA9CBB00C1885C /* RegisterViewModel.swift in Sources */,
