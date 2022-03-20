@@ -14,11 +14,11 @@ protocol CustomInputAccessoryViewDelegate: AnyObject {
 
 final class CustomInputAccessoryView: UIView {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     weak var delegate: CustomInputAccessoryViewDelegate?
 
-    lazy var messageInputTextView: UITextView = {
+    private lazy var messageInputTextView: UITextView = {
         let textview = UITextView()
         textview.font = UIFont.systemFont(ofSize: 16)
         textview.textColor = .black
@@ -44,7 +44,7 @@ final class CustomInputAccessoryView: UIView {
         return label
     }()
 
-    // MARK: Lifycycle
+    // MARK: - Lifycycle
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,7 +56,7 @@ final class CustomInputAccessoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Configure UI
+    // MARK: - Configure UI
 
     private func configureUI() {
         autoresizingMask = .flexibleHeight
@@ -109,7 +109,7 @@ final class CustomInputAccessoryView: UIView {
         return .zero
     }
 
-    // MARK: Selectors
+    // MARK: - Selectors
 
     @objc
     private func handleSendMessage() {
@@ -120,5 +120,12 @@ final class CustomInputAccessoryView: UIView {
     @objc
     private func handleTextInputChange() {
         placeholderLabel.isHidden = !self.messageInputTextView.text.isEmpty
+    }
+
+    // MARK: - Helpers
+
+    func clearMessageText() {
+        messageInputTextView.text = nil
+        placeholderLabel.isHidden = false
     }
 }

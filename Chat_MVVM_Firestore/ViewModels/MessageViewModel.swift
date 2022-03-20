@@ -5,7 +5,6 @@
 //  Created by Кирилл Дутов on 15.03.2022.
 //
 
-import Foundation
 import UIKit
 
 struct MessageViewModel {
@@ -30,6 +29,11 @@ struct MessageViewModel {
 
     var shouldHideProfileImage: Bool {
         return message.isFromCurrentUser
+    }
+
+    var profileImageUrl: URL? {
+        guard let user = message.user else { return nil }
+        return URL(string: user.profileImageUrl)
     }
 
     init(message: Message) {

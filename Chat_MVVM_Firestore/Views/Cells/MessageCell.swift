@@ -10,7 +10,7 @@ import UIKit
 final class MessageCell: UICollectionViewCell {
     static let identifier = "\(MessageCell.self)"
 
-    // MARK: Properties
+    // MARK: - Properties
 
     var message: Message? {
         didSet { configure() }
@@ -24,7 +24,6 @@ final class MessageCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .lightGray
         return imageView
     }()
 
@@ -53,6 +52,26 @@ final class MessageCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+
+    // MARK: - Configure cell
+
+    private func configure() {
+        guard let message = message else { return }
+        let viewmodel = MessageViewModel(message: message)
+
+        bubbleContainer.backgroundColor = viewmodel.messageBackgroundColor
+        textView.textColor = viewmodel.messageTextColor
+        textView.text = message.text
+
+        bubbleLeftAnchor.isActive = viewmodel.leftAnchorActive
+        bubbleRightAnchor.isActive = viewmodel.rightAnchorActive
+
+        profileImageView.isHidden = viewmodel.shouldHideProfileImage
+        profileImageView.sd_setImage(with: viewmodel.profileImageUrl)
+    }
+
+    // MARK: - Configure UI
 
     private func configureUI() {
         configureProfileImageView()
@@ -85,19 +104,5 @@ final class MessageCell: UICollectionViewCell {
                         paddingLeft: 12,
                         paddingBottom: -4,
                         paddingRight: -12)
-    }
-
-    private func configure() {
-        guard let message = message else { return }
-        let viewmodel = MessageViewModel(message: message)
-
-        bubbleContainer.backgroundColor = viewmodel.messageBackgroundColor
-        textView.textColor = viewmodel.messageTextColor
-        textView.text = message.text
-
-        bubbleLeftAnchor.isActive = viewmodel.leftAnchorActive
-        bubbleRightAnchor.isActive = viewmodel.rightAnchorActive
-
-        profileImageView.isHidden = viewmodel.shouldHideProfileImage
     }
 }

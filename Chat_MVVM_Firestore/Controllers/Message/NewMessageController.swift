@@ -14,12 +14,12 @@ protocol NewMessageControllerDelegate: AnyObject {
 
 final class NewMessageController: UITableViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     private var users: [User] = []
     weak var delegate: NewMessageControllerDelegate?
 
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ final class NewMessageController: UITableViewController {
         fetchUsers()
     }
 
-    // MARK: Configure UI
+    // MARK: - Configure UI
 
     private func configureUI() {
         view.backgroundColor = .white
@@ -53,13 +53,15 @@ final class NewMessageController: UITableViewController {
         }
     }
 
-    // MARK: Selectors
+    // MARK: - Selectors
 
     @objc
     private func handleDismissal() {
         dismiss(animated: true, completion: nil)
     }
 }
+
+    // MARK: - Extension
 
 extension NewMessageController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

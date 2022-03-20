@@ -17,6 +17,8 @@ protocol AuthenticationControllerProtocol {
 
 final class LoginController: UIViewController {
 
+    // MARK: - Properties
+
     private var viewModel = LoginViewModel()
     
     private let iconImage: UIImageView = {
@@ -75,13 +77,17 @@ final class LoginController: UIViewController {
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
     }
-    
+
+    // MARK: - Configure UI
+
     private func configureUI() {
         view.backgroundColor = .systemPink
         setupNavigationController()
@@ -134,7 +140,7 @@ final class LoginController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 
-    // MARK: Selectors
+    // MARK: - Selectors
 
     @objc
     private func handleShowSignUp() {
@@ -169,6 +175,8 @@ final class LoginController: UIViewController {
         }
     }
 }
+
+    // MARK: - Extension
 
 extension LoginController: AuthenticationControllerProtocol {
 

@@ -10,7 +10,7 @@ import Firebase
 
 final class RegistrationController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     private var viewModel = RegisterViewModel()
     private var profileImage: UIImage?
@@ -81,14 +81,14 @@ final class RegistrationController: UIViewController {
         return button
     }()
 
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
 
-    // MARK: Configure UI
+    // MARK: - Configure UI
 
     private func configureUI() {
         view.backgroundColor = .systemPurple
@@ -134,7 +134,7 @@ final class RegistrationController: UIViewController {
                                         right: view.rightAnchor)
     }
 
-    // MARK: Configure observers
+    // MARK: - Configure observers
 
     private func configureTextFields() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
@@ -149,7 +149,7 @@ final class RegistrationController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    // MARK: Selectors
+    // MARK: - Selectors
 
     @objc
     private func keyboardWillShow() {
@@ -219,6 +219,8 @@ final class RegistrationController: UIViewController {
 
     }
 }
+
+    // MARK: - Extensions
 
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

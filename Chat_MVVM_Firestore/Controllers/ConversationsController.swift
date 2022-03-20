@@ -10,7 +10,7 @@ import Firebase
 
 class ConversationsController: UIViewController {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     private let tableView = UITableView(frame: .zero)
 
@@ -25,13 +25,15 @@ class ConversationsController: UIViewController {
         return button
     }()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         authenticateUser()
     }
 
-    // MARK: Configure UI
+    // MARK: - Configure UI
 
     private func configureUI() {
         view.backgroundColor = .white
@@ -70,7 +72,7 @@ class ConversationsController: UIViewController {
         newMessageButton.addTarget(self, action: #selector(showNewMessage), for: .touchUpInside)
     }
 
-    // MARK: Configure API
+    // MARK: - Configure API
 
     private func authenticateUser() {
         if Auth.auth().currentUser?.uid == nil {
@@ -89,7 +91,7 @@ class ConversationsController: UIViewController {
         }
     }
 
-    // MARK: Selectors
+    // MARK: - Selectors
 
     @objc
     private func showProfile() {
@@ -105,7 +107,7 @@ class ConversationsController: UIViewController {
         present(navigationController, animated: true, completion: nil)
     }
 
-    // MARK: Helpers
+    // MARK: - Helpers
 
     private func presentLoginScreen() {
         DispatchQueue.main.async {
@@ -116,6 +118,8 @@ class ConversationsController: UIViewController {
         }
     }
 }
+
+    // MARK: - Extensions
 
 extension ConversationsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

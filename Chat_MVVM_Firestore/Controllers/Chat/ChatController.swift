@@ -7,8 +7,9 @@
 
 import UIKit
 
-
 final class ChatController: UICollectionViewController {
+
+    // MARK: - Properties
 
     private let user: User
     private var messages: [Message] = []
@@ -20,6 +21,16 @@ final class ChatController: UICollectionViewController {
         return inputView
     }()
 
+    override var inputAccessoryView: UIView? {
+        get { return customInputView }
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+
+    // MARK: - Inits
+
     init(user: User) {
         self.user = user
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -29,18 +40,24 @@ final class ChatController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchMessages()
     }
 
-    override var inputAccessoryView: UIView? {
-        get { return customInputView }
+    // MARK: - API
+
+    func fetchMessages() {
+        Service.fetchMessages(forUser: user) { messages in
+            self.messages = messages
+            self.collectionView.reloadData()
+        }
     }
 
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
+    // MARK: - Configure UI
 
     private func configureUI() {
         collectionView.backgroundColor = .white
@@ -60,9 +77,12 @@ final class ChatController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageCell.identifier, for: indexPath) as? MessageCell else { return UICollectionViewCell() }
         cell.message = messages[indexPath.row]
+        cell.message?.user = user
         return cell
     }
 }
+
+    // MARK: - Extensions
 
 extension ChatController: UICollectionViewDelegateFlowLayout {
 
@@ -83,8 +103,7 @@ extension ChatController: CustomInputAccessoryViewDelegate {
                 print("DEBUG: Failed to upload message with error \(error.localizedDescription)")
                 return
             }
-            
-            inputView.messageInputTextView.text = nil
+            inputView.clearMessageText()
         }
     }
 }
