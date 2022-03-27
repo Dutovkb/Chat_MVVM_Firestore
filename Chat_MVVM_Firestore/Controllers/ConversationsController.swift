@@ -84,7 +84,7 @@ class ConversationsController: UIViewController {
         if Auth.auth().currentUser?.uid == nil {
             presentLoginScreen()
         } else {
-            print("DEBUG: user id is: \(Auth.auth().currentUser?.uid)")
+            print("DEBUG: user id is: \(Auth.auth().currentUser?.uid ?? "nil")")
         }
     }
 
@@ -108,7 +108,10 @@ class ConversationsController: UIViewController {
 
     @objc
     private func showProfile() {
-        logout()
+        let controller = ProfileController()
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
 
     @objc
