@@ -7,9 +7,19 @@
 
 import UIKit
 
+protocol ProfileHeaderDelegate: class {
+    func dismissController()
+}
+
 final class ProfileHeader: UIView {
     
     // MARK: - Properties
+    
+    weak var delegate: ProfileHeaderDelegate?
+    
+    var user: User? {
+        didSet { populateUserData() }
+    }
     
     private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -34,7 +44,6 @@ final class ProfileHeader: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
         label.textAlignment = .center
-        label.text = "Kirill Dutov"
         return label
     }()
     
@@ -43,7 +52,6 @@ final class ProfileHeader: UIView {
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .center
-        label.text = "@Kirro"
         return label
     }()
     
@@ -51,11 +59,6 @@ final class ProfileHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
-        gradient.locations = [0, 1]
-        layer.addSublayer(gradient)
-        gradient.frame = bounds
         configureUI()
     }
     
@@ -95,10 +98,20 @@ final class ProfileHeader: UIView {
         dismissButton.setDimensions(height: 48, width: 48)
     }
     
+    // MARK: - Confifure user data
+    
+    private func populateUserData() {
+        guard let user = user,
+              let url = URL(string: user.profileImageUrl) else { return }
+        fullnameLabel.text = user.fullname
+        usernameLabel.text = "@" + user.username
+        profileImageView.sd_setImage(with: url)
+    }
+    
     // MARK: - Selectors
     
     @objc
     private func handleDismissal() {
-        
+        delegate?.dismissController()
     }
 }

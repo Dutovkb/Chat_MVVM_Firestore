@@ -50,4 +50,3 @@ extension UIViewController {
         navigationItem.title = title
     }
 }
-
